@@ -3,6 +3,8 @@ package si.vratanar.newsapi.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Entity
 @Getter
 @Setter
@@ -21,4 +23,13 @@ public class Topic {
 
     @Column(length = 64, nullable = false)
     private String nameEn;
+
+    @OneToMany(mappedBy = "child")
+    private Set<TopicHierarchy> parents;
+
+    @OneToMany(mappedBy = "parent")
+    private Set<TopicHierarchy> children;
+
+    @OneToMany(mappedBy = "topicLeaf")
+    Set<Post> topicPosts;
 }
