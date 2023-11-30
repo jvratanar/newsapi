@@ -2,6 +2,7 @@ package si.vratanar.newsapi.factories;
 
 import com.github.javafaker.Faker;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import si.vratanar.newsapi.dtos.PostDto;
 
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-@Service
+@Component
 @RequiredArgsConstructor
 public class PostDtoFactory {
     public static final String ALTERNATE_LANG = "EN";
