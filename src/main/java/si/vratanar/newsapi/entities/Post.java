@@ -5,6 +5,9 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -23,12 +26,12 @@ public class Post {
     @Column(length = 128, nullable = false)
     @Size(min = 5, max = 128)
     @NotBlank
-    private Integer title;
+    private String title;
 
     @Column(length = 128, nullable = false)
     @Size(min = 5, max = 128)
     @NotBlank
-    private Integer titleEn;
+    private String titleEn;
 
     @Column(length = 128, nullable = false)
     @Size(min = 5, max = 512)
@@ -51,6 +54,12 @@ public class Post {
     @Column(nullable = false)
     @NotNull
     private LocalDateTime publishDate;
+
+    @CreationTimestamp
+    private LocalDateTime createdDate;
+
+    @UpdateTimestamp
+    private LocalDateTime updatedDate;
 
     @ManyToOne
     private PostStatus status;

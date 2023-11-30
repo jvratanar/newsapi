@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
-public class PostServiceImpl implements PostService {
+public class PostServiceJpa implements PostService {
     private static final int DEFAULT_PAGE = 0;
     private static final int DEFAULT_PAGE_SIZE = 25;
 

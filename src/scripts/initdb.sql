@@ -8,4 +8,6 @@ CREATE DATABASE newsapidb
 
 CREATE USER newsapiapp WITH PASSWORD 'newsapiapp';
 
-GRANT ALL ON SCHEMA public TO demo;
+GRANT ALL PRIVILEGES ON DATABASE newsapidb TO newsapiapp;
+
+GRANT ALL ON SCHEMA public TO newsapiapp;

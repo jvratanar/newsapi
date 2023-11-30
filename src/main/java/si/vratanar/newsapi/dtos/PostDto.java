@@ -14,10 +14,10 @@ public class PostDto {
     private Long id;
 
     @NotBlank
-    private Integer title;
+    private String title;
 
     @NotBlank
-    private Integer titleEn;
+    private String titleEn;
 
     @Size(min = 5, max = 512)
     @NotBlank
