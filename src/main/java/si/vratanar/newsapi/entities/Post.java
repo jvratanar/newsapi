@@ -2,9 +2,11 @@ package si.vratanar.newsapi.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
@@ -45,6 +47,10 @@ public class Post {
     @Column(columnDefinition = "text", nullable = false)
     @NotBlank
     private String mainContentEn;
+
+    @Column(nullable = false)
+    @NotNull
+    private LocalDateTime publishDate;
 
     @ManyToOne
     private PostStatus status;
