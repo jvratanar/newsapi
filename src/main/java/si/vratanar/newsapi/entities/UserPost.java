@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthorPost {
+public class UserPost {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -18,7 +18,7 @@ public class AuthorPost {
     private Post post;
 
     @ManyToOne
-    private Author author;
+    private User user;
 
     private Boolean primaryAuthor;
 }

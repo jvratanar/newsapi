@@ -13,7 +13,8 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Author {
+@Table(name = "app_user")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -28,6 +29,17 @@ public class Author {
     @NotBlank
     private String lastName;
 
-    @OneToMany(mappedBy = "author")
-    private Set<AuthorPost> authorPosts;
+    @NotBlank
+    @Column(length = 128, nullable = false)
+    private String password;
+
+    private Boolean enabled;
+
+    private Integer tokenVersion;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<UserAuthority> userAuthorities;
+
+    @OneToMany(mappedBy = "user")
+    private Set<UserPost> userPosts;
 }

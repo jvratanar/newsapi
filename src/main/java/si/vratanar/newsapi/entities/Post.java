@@ -7,7 +7,6 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -68,7 +67,7 @@ public class Post {
     private Topic topicLeaf;
 
     @OneToMany(mappedBy = "post")
-    private Set<AuthorPost> postAuthors;
+    private Set<UserPost> postUsers;
 
     @OneToMany(mappedBy = "post")
     private Set<PostImage> postImages;
